@@ -48,3 +48,5 @@ data/sample_documents/*
 # Logs
 *.log
 logs/
+frontend/build/
+frontend/node_modules/
