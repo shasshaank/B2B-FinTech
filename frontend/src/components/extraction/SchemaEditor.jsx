@@ -1,33 +1,29 @@
-import React, { useState, useEffect } from 'react';
-import { Table, Button, Input, Select, Switch, Space, message, Tabs, Tag, Tooltip } from 'antd';
+import React, { useState, useEffect, useCallback } from 'react';
+import { Table, Button, Input, Select, Switch, message, Tabs, Tooltip } from 'antd';
 import { PlusOutlined, DeleteOutlined, SaveOutlined } from '@ant-design/icons';
 import { extractionAPI } from '../../services/api';
 
 const { Option } = Select;
-const { TabPane } = Tabs;
 
 const FIELD_TYPES = ['string', 'number', 'date', 'currency'];
 
 const SchemaEditor = ({ entityId }) => {
   const [schemas, setSchemas] = useState({});
-  const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
 
-  useEffect(() => {
-    loadSchemas();
-  }, [entityId]);
-
-  const loadSchemas = async () => {
+  const loadSchemas = useCallback(async () => {
     if (!entityId) return;
     try {
       const data = await extractionAPI.getSchema(entityId);
       setSchemas(data.schemas || {});
     } catch (error) {
       message.error(`Failed to load schemas: ${error.message}`);
-    } finally {
-      setLoading(false);
     }
-  };
+  }, [entityId]);
+
+  useEffect(() => {
+    loadSchemas();
+  }, [entityId, loadSchemas]);
 
   const updateField = (category, index, field, value) => {
     setSchemas(prev => ({

@@ -15,13 +15,6 @@ const CATEGORIES = [
   'Portfolio Performance Data',
 ];
 
-const getConfidenceColor = (confidence) => {
-  if (!confidence) return 'default';
-  if (confidence > 0.8) return 'success';
-  if (confidence > 0.5) return 'warning';
-  return 'error';
-};
-
 const ClassificationReview = ({ entityId, documents, onDocumentsChange }) => {
   const [loading, setLoading] = useState(false);
   const [editingId, setEditingId] = useState(null);

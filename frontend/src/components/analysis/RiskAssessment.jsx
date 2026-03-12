@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Card, Row, Col, Typography, Spin, Table, Tag, List, Alert, Space } from 'antd';
+import { Button, Card, Row, Col, Typography, Spin, Table, Tag, List, Space } from 'antd';
 import { ThunderboltOutlined } from '@ant-design/icons';
 import { analysisAPI } from '../../services/api';
 

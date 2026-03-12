@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Tabs, Button, message } from 'antd';
 import { ArrowRightOutlined, AuditOutlined, TableOutlined, SettingOutlined } from '@ant-design/icons';
 import ClassificationReview from '../components/extraction/ClassificationReview';
@@ -10,18 +10,18 @@ const ExtractionPage = ({ entityId, onComplete }) => {
   const [documents, setDocuments] = useState([]);
   const [activeTab, setActiveTab] = useState('classify');
 
-  useEffect(() => {
-    if (entityId) loadDocuments();
-  }, [entityId]);
-
-  const loadDocuments = async () => {
+  const loadDocuments = useCallback(async () => {
     try {
       const docs = await documentAPI.getAll(entityId);
       setDocuments(docs);
     } catch (error) {
       message.error('Failed to load documents');
     }
-  };
+  }, [entityId]);
+
+  useEffect(() => {
+    if (entityId) loadDocuments();
+  }, [entityId, loadDocuments]);
 
   const handleProceed = () => {
     const extractedCount = documents.filter(d => d.extracted_data).length;

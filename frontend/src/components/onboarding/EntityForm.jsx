@@ -1,11 +1,8 @@
 import React from 'react';
-import { Form, Input, Select, DatePicker, InputNumber, Row, Col, Typography } from 'antd';
+import { Form, Input, Select, DatePicker, InputNumber, Row, Col } from 'antd';
 import { 
   BankOutlined, IdcardOutlined, ApartmentOutlined 
 } from '@ant-design/icons';
-import dayjs from 'dayjs';
-
-const { Title, Text } = Typography;
 const { TextArea } = Input;
 const { Option } = Select;
 

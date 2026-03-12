@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Button, message } from 'antd';
 import { ArrowRightOutlined } from '@ant-design/icons';
 import DocumentUpload from '../components/ingestion/DocumentUpload';
@@ -7,18 +7,18 @@ import { documentAPI } from '../services/api';
 const IngestionPage = ({ entityId, onComplete }) => {
   const [documents, setDocuments] = useState([]);
 
-  useEffect(() => {
-    if (entityId) loadDocuments();
-  }, [entityId]);
-
-  const loadDocuments = async () => {
+  const loadDocuments = useCallback(async () => {
     try {
       const docs = await documentAPI.getAll(entityId);
       setDocuments(docs);
     } catch (error) {
       message.error('Failed to load documents');
     }
-  };
+  }, [entityId]);
+
+  useEffect(() => {
+    if (entityId) loadDocuments();
+  }, [entityId, loadDocuments]);
 
   const handleProceed = () => {
     if (documents.length === 0) {

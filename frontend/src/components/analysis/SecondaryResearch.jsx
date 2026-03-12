@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Button, Card, Tag, Row, Col, Typography, Spin, List, Alert, Divider, Badge } from 'antd';
+import { Button, Card, Tag, Row, Col, Typography, Spin, List, Badge } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import { analysisAPI } from '../../services/api';
 
-const { Title, Text, Paragraph } = Typography;
+const { Text, Paragraph } = Typography;
 
 const getSentimentColor = (sentiment) => {
   if (!sentiment) return 'default';

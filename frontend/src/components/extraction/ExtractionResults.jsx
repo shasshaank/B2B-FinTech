@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Table, Button, message, Tabs, Tag, Space, Alert, Spin, Typography } from 'antd';
+import React, { useState, useEffect, useCallback } from 'react';
+import { Table, Button, message, Tabs, Tag, Space, Alert, Typography } from 'antd';
 import { ThunderboltOutlined, SaveOutlined, SyncOutlined } from '@ant-design/icons';
 import { extractionAPI } from '../../services/api';
 
@@ -7,18 +7,13 @@ const { Text } = Typography;
 
 const ExtractionResults = ({ entityId, documents, onDocumentsChange }) => {
   const [extractedData, setExtractedData] = useState({});
-  const [loading, setLoading] = useState(false);
   const [extractingAll, setExtractingAll] = useState(false);
 
   const classifiedDocs = documents.filter(d =>
     ['classified', 'confirmed'].includes(d.classification_status)
   );
 
-  useEffect(() => {
-    loadExistingExtractions();
-  }, [documents]);
-
-  const loadExistingExtractions = async () => {
+  const loadExistingExtractions = useCallback(() => {
     const data = {};
     for (const doc of classifiedDocs) {
       if (doc.extracted_data) {
@@ -30,7 +25,12 @@ const ExtractionResults = ({ entityId, documents, onDocumentsChange }) => {
       }
     }
     setExtractedData(data);
-  };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [documents]);
+
+  useEffect(() => {
+    loadExistingExtractions();
+  }, [loadExistingExtractions]);
 
   const extractAll = async () => {
     setExtractingAll(true);

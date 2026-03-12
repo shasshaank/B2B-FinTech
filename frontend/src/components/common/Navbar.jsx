@@ -2,7 +2,7 @@ import React from 'react';
 import { Typography, Tag } from 'antd';
 import { BankOutlined, UserOutlined } from '@ant-design/icons';
 
-const { Title, Text } = Typography;
+const { Title } = Typography;
 
 const Navbar = ({ entityName, entityId }) => {
   return (

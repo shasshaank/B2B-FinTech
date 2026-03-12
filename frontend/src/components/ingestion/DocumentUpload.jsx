@@ -31,7 +31,6 @@ const formatBytes = (bytes) => {
 };
 
 const DocumentUpload = ({ entityId, documents, onDocumentsChange }) => {
-  const [uploading, setUploading] = useState(false);
   const [uploadProgress, setUploadProgress] = useState({});
 
   const handleUpload = async (file) => {
@@ -40,7 +39,6 @@ const DocumentUpload = ({ entityId, documents, onDocumentsChange }) => {
       return false;
     }
 
-    setUploading(true);
     setUploadProgress(prev => ({ ...prev, [file.name]: 0 }));
 
     try {
@@ -73,7 +71,6 @@ const DocumentUpload = ({ entityId, documents, onDocumentsChange }) => {
         return rest;
       });
     } finally {
-      setUploading(false);
     }
     return false; // Prevent default upload
   };
