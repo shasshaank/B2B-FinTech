@@ -37,15 +37,16 @@ export const entityAPI = {
 
 // Stage 2: Document Ingestion
 export const documentAPI = {
-  upload: (entityId, file) => {
+  upload: (entityId, file, onProgress) => {
     const formData = new FormData();
     formData.append('file', file);
-    return api.post(`/entity/${entityId}/documents`, formData, {
+    const config = {
       headers: { 'Content-Type': 'multipart/form-data' },
-      onUploadProgress: (progressEvent) => {
-        // Progress handled by caller
-      },
-    });
+    };
+    if (onProgress) {
+      config.onUploadProgress = onProgress;
+    }
+    return api.post(`/entity/${entityId}/documents`, formData, config);
   },
   getAll: (entityId) => api.get(`/entity/${entityId}/documents`),
   delete: (documentId) => api.delete(`/documents/${documentId}`),

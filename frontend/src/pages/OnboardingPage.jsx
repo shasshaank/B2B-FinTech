@@ -16,6 +16,7 @@ const OnboardingPage = ({ onComplete }) => {
   const [currentStep, setCurrentStep] = useState(0);
   const [loading, setLoading] = useState(false);
   const [entityId, setEntityId] = useState(null);
+  const [entityName, setEntityName] = useState(null);
 
   const handleEntitySubmit = async () => {
     try {
@@ -29,6 +30,7 @@ const OnboardingPage = ({ onComplete }) => {
 
       const entity = await entityAPI.create(values);
       setEntityId(entity.id);
+      setEntityName(entity.company_name);
       message.success('Entity created successfully!');
       setCurrentStep(1);
       form.resetFields();
@@ -51,7 +53,7 @@ const OnboardingPage = ({ onComplete }) => {
       await entityAPI.createLoan(entityId, values);
       message.success('Loan details saved!');
       
-      if (onComplete) onComplete(entityId);
+      if (onComplete) onComplete(entityId, entityName);
     } catch (error) {
       if (error?.errorFields) {
         message.error('Please fill in all required fields');

@@ -14,6 +14,7 @@ const App = () => {
   const [currentStage, setCurrentStage] = useState(0);
   const [entityId, setEntityId] = useState(null);
   const [entityName, setEntityName] = useState(null);
+  // entityName is set when onboarding completes and shown in the navbar
 
   const handleIngestionComplete = () => {
     setCurrentStage(2);
@@ -39,8 +40,9 @@ const App = () => {
         <Content className="main-content">
           {currentStage === 0 && (
             <OnboardingPage
-              onComplete={(id) => {
+              onComplete={(id, name) => {
                 setEntityId(id);
+                setEntityName(name);
                 setCurrentStage(1);
               }}
             />
