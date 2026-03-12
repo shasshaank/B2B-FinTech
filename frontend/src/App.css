@@ -1,0 +1,366 @@
+/* CreditLens - Professional FinTech Styling */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: #f0f2f5;
+  color: #1a1a2e;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Layout ─────────────────────────────────────────────────────────────── */
+
+.app-layout {
+  min-height: 100vh;
+  background: #f0f2f5;
+}
+
+.main-content {
+  padding: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ─── Navbar ─────────────────────────────────────────────────────────────── */
+
+.navbar {
+  background: linear-gradient(135deg, #0a0a1a 0%, #1a237e 50%, #0d47a1 100%);
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 20px rgba(24, 144, 255, 0.3);
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navbar-logo {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, #1890ff, #40a9ff);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+  color: white;
+}
+
+.navbar-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 1px;
+}
+
+.navbar-subtitle {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.navbar-entity-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 13px;
+}
+
+/* ─── Step Progress ───────────────────────────────────────────────────────── */
+
+.step-progress-container {
+  background: white;
+  padding: 16px 24px;
+  border-bottom: 1px solid #f0f0f0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+/* ─── Cards ──────────────────────────────────────────────────────────────── */
+
+.stage-card {
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f0f0f0;
+}
+
+.form-card {
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  border: none;
+  overflow: hidden;
+}
+
+.form-card .ant-card-head {
+  background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%);
+  border-bottom: none;
+}
+
+.form-card .ant-card-head-title {
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* ─── Buttons ─────────────────────────────────────────────────────────────── */
+
+.btn-primary-gradient {
+  background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%);
+  border: none;
+  color: white;
+  font-weight: 600;
+  height: 42px;
+  padding: 0 28px;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary-gradient:hover {
+  background: linear-gradient(135deg, #40a9ff 0%, #1890ff 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(24, 144, 255, 0.4);
+}
+
+/* ─── Decision Badges ──────────────────────────────────────────────────────── */
+
+.decision-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.decision-approve {
+  background: linear-gradient(135deg, #f6ffed, #d9f7be);
+  color: #389e0d;
+  border: 2px solid #52c41a;
+}
+
+.decision-conditional {
+  background: linear-gradient(135deg, #fffbe6, #fff1b8);
+  color: #d48806;
+  border: 2px solid #faad14;
+}
+
+.decision-reject {
+  background: linear-gradient(135deg, #fff1f0, #ffccc7);
+  color: #cf1322;
+  border: 2px solid #ff4d4f;
+}
+
+/* ─── SWOT Grid ───────────────────────────────────────────────────────────── */
+
+.swot-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 16px;
+}
+
+.swot-card {
+  border-radius: 12px;
+  padding: 20px;
+  min-height: 200px;
+}
+
+.swot-strengths {
+  background: linear-gradient(135deg, #f6ffed, #d9f7be);
+  border: 1px solid #b7eb8f;
+}
+
+.swot-weaknesses {
+  background: linear-gradient(135deg, #fff1f0, #ffccc7);
+  border: 1px solid #ffa39e;
+}
+
+.swot-opportunities {
+  background: linear-gradient(135deg, #e6f7ff, #bae7ff);
+  border: 1px solid #91d5ff;
+}
+
+.swot-threats {
+  background: linear-gradient(135deg, #fff7e6, #ffe7ba);
+  border: 1px solid #ffd591;
+}
+
+.swot-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.swot-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 13px;
+  color: #444;
+  line-height: 1.5;
+}
+
+/* ─── News Cards ──────────────────────────────────────────────────────────── */
+
+.news-card {
+  border-radius: 10px;
+  border: 1px solid #f0f0f0;
+  padding: 16px;
+  margin-bottom: 12px;
+  background: white;
+  transition: box-shadow 0.2s ease;
+}
+
+.news-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.news-headline {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+.news-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  color: #8c8c8c;
+}
+
+/* ─── Metric Cards ────────────────────────────────────────────────────────── */
+
+.metric-card {
+  background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%);
+  border-radius: 12px;
+  padding: 20px;
+  color: white;
+  text-align: center;
+}
+
+.metric-value {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.metric-label {
+  font-size: 12px;
+  opacity: 0.85;
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ─── Upload ──────────────────────────────────────────────────────────────── */
+
+.upload-dragger {
+  border: 2px dashed #1890ff !important;
+  background: #f0f8ff !important;
+  border-radius: 12px !important;
+}
+
+.upload-dragger:hover {
+  border-color: #40a9ff !important;
+  background: #e6f4ff !important;
+}
+
+/* ─── Report ──────────────────────────────────────────────────────────────── */
+
+.report-container {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+.report-header {
+  text-align: center;
+  padding-bottom: 24px;
+  border-bottom: 2px solid #1890ff;
+  margin-bottom: 32px;
+}
+
+.report-section {
+  margin-bottom: 32px;
+}
+
+.report-section-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1890ff;
+  border-bottom: 1px solid #e8f4ff;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+}
+
+/* ─── Classification ──────────────────────────────────────────────────────── */
+
+.confidence-high { color: #52c41a; }
+.confidence-medium { color: #faad14; }
+.confidence-low { color: #ff4d4f; }
+
+/* ─── Loading Spinner ──────────────────────────────────────────────────────── */
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.loading-text {
+  margin-top: 16px;
+  color: #1890ff;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* ─── Responsive ──────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .swot-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .main-content {
+    padding: 12px;
+  }
+
+  .navbar-subtitle {
+    display: none;
+  }
+}
