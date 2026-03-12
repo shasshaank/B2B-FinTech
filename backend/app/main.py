@@ -395,7 +395,7 @@ def _extract_with_gemini(content: str, schema_json: str, category: str, api_key:
 Schema:
 {schema_json}
 
-Return ONLY a valid JSON array of objects matching the schema fields. Be precise with numbers — preserve exact values from the document. If a value is not found, use null.
+Return ONLY a valid JSON array of objects matching the schema fields. Be precise with numbers -- preserve exact values from the document. If a value is not found, use null.
 
 Document content:
 {content}"""
