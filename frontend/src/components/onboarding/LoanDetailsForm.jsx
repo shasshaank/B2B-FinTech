@@ -1,11 +1,11 @@
 import React from 'react';
 import {
-  Form, Select, InputNumber, Row, Col, Card,
+  Form, Select, InputNumber, Row, Col, Card, Input,
 } from 'antd';
 import { DollarOutlined } from '@ant-design/icons';
 
 const { Option } = Select;
-const { TextArea } = require('antd').Input;
+const { TextArea } = Input;
 
 const LOAN_TYPES = [
   'Term Loan', 'Working Capital', 'Overdraft', 'Letter of Credit',

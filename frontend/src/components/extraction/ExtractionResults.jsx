@@ -74,7 +74,7 @@ const ExtractionResults = ({ documents, onUpdate }) => {
       data = [];
     }
 
-    if (!data || data.length === 0) return <Empty description="No data extracted yet" />;
+    if (!Array.isArray(data) || data.length === 0) return <Empty description="No data extracted yet" />;
 
     const keys = Object.keys(data[0] || {}).filter((k) => !k.startsWith('_'));
     const columns = keys.map((key) => ({

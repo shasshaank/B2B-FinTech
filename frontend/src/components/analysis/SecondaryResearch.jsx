@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {
   Card, Button, Row, Col, Tag, Typography, Space,
-  Alert, Skeleton, Divider, Progress,
+  Alert, Skeleton, Divider, Progress, message,
 } from 'antd';
 import {
   SearchOutlined, GlobalOutlined, AlertOutlined,
@@ -25,7 +25,7 @@ const SecondaryResearch = ({ entityId, research, onUpdate }) => {
       await runSecondaryResearch(entityId);
       if (onUpdate) await onUpdate();
     } catch (err) {
-      console.error('Research error:', err);
+      message.error(`Secondary research failed: ${err.message}`);
     } finally {
       setLoading(false);
     }

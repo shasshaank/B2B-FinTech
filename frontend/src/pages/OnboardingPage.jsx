@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Form, Button, Steps, message, Typography, Space } from 'antd';
 import { ArrowRightOutlined, CheckCircleOutlined } from '@ant-design/icons';
-import { useApp } from '../../App';
-import { createEntity, createLoanDetails } from '../../services/api';
-import EntityForm from '../../components/onboarding/EntityForm';
-import LoanDetailsForm from '../../components/onboarding/LoanDetailsForm';
-import LoadingSpinner from '../../components/common/LoadingSpinner';
+import { useApp } from '../App';
+import { createEntity, createLoanDetails } from '../services/api';
+import EntityForm from '../components/onboarding/EntityForm';
+import LoanDetailsForm from '../components/onboarding/LoanDetailsForm';
+import LoadingSpinner from '../components/common/LoadingSpinner';
 
 const { Title, Text } = Typography;
 

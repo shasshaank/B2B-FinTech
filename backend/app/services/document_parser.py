@@ -35,7 +35,7 @@ def parse_pdf(file_path: str, max_pages: int = None) -> Dict[str, Any]:
         return {
             "text": "\n\n".join(texts),
             "tables": all_tables,
-            "pages": len(pdf.pages) if 'pdf' in dir() else 0
+            "pages": len(texts)
         }
     except Exception as e:
         # Fallback to OCR if pdfplumber fails

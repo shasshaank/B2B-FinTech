@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {
   Card, Button, Row, Col, Tag, Typography, Space,
-  Table, Statistic, Progress, Divider, List,
+  Table, Statistic, Progress, Divider, List, message,
 } from 'antd';
 import {
   ThunderboltOutlined, CheckCircleOutlined,
@@ -44,7 +44,7 @@ const RiskAssessment = ({ entityId, recommendation, onUpdate }) => {
       await generateRecommendation(entityId);
       if (onUpdate) await onUpdate();
     } catch (err) {
-      console.error('Recommendation error:', err);
+      message.error(`Risk assessment failed: ${err.message}`);
     } finally {
       setLoading(false);
     }

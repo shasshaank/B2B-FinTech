@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, Button, Typography, Space } from 'antd';
+import { Card, Button, Typography, Space, message } from 'antd';
 import {
   ThunderboltOutlined,
   CheckCircleOutlined, CloseCircleOutlined,
@@ -53,7 +53,7 @@ const SwotAnalysis = ({ entityId, swot, onUpdate }) => {
       await generateSwot(entityId);
       if (onUpdate) await onUpdate();
     } catch (err) {
-      console.error('SWOT error:', err);
+      message.error(`SWOT generation failed: ${err.message}`);
     } finally {
       setLoading(false);
     }
